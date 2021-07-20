@@ -1,9 +1,9 @@
-//Intro to game.
+//Intro.
 const readline = require("readline-sync");
 const playerName = readline.question("Please enter your name: ");
 console.log(`Welcome to Lin'rik ${playerName}! A fantasy world with wonders and dangers all around!`);
 
-//Press 1 to start the game.
+//Press start.
 const start = readline.keyIn(`${playerName} please press 1 to start.`, {limit: '$<1>'});
 let pressStart = false;
 if (start == 1)
@@ -21,15 +21,15 @@ let pickUp = treasure[Math.floor(Math.random() * treasure.length)];
 
 function game()
 {
-    //Randomized Variables.
-    const attackPower = Math.floor(Math.random() * (30 + 15 - 3) + 15);
-    const enemy = enemies[Math.floor(Math.random() * enemies.length)];
-    let enemyHealth = Math.floor(Math.random() * 150);
-    const enemyPower = Math.floor(Math.random() * (20 + 20 - 2) + 12);
-
-    //Action Options.
     while (pressStart == true && userHealth > 0)
     {
+        //Randomized Variables.
+        const attackPower = Math.floor(Math.random() * (30 + 15 - 3) + 15);
+        const enemy = enemies[Math.floor(Math.random() * enemies.length)];
+        let enemyHealth = Math.floor(Math.random() * 150);
+        const enemyPower = Math.floor(Math.random() * (20 + 20 - 2) + 12);
+
+        //Action Options.
         const perform = readline.keyIn("What would you like to do? \nPress 'W' to walk. \nPress 'P' to print stats. \nPress 'X' to exit the game.", {limit: '$<w, p, x>'});
 
         //Game Mechanics.

@@ -66,6 +66,7 @@ function game()
         }
         else if (perform == 'w')
         {
+            hasHealed = false;
             let randomize = Math.random();
             if (randomize <= 0.25)
             {
@@ -77,7 +78,6 @@ function game()
                 while (userHealth > 0 && enemyHealth > 0)
                 {
                     const actions = readline.keyIn("What would you like to do? \nPress 'R' to run away. \nPress 'A' to attack.", {limit: '<r, a>'});
-                    hasHealed = false;
                     if (actions == 'r')
                     {
                         const run = Math.random();

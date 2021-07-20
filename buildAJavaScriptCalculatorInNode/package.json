@@ -1,0 +1,22 @@
+{
+  "name": "buildajavascriptcalculatorinnode",
+  "version": "1.0.0",
+  "description": "\"Javascript calculator for college\"",
+  "main": "buildAJavaScriptCalculatorInNode.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eastonyarbrough/fsw-105.git"
+  },
+  "author": "Easton Yarbrough",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/eastonyarbrough/fsw-105/issues"
+  },
+  "homepage": "https://github.com/eastonyarbrough/fsw-105#readme",
+  "dependencies": {
+    "readline-sync": "^1.4.10"
+  }
+}

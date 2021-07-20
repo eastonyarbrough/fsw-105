@@ -68,11 +68,11 @@ function game()
         {
             hasHealed = false;
             let randomize = Math.random();
-            if (randomize <= 0.25)
+            if (randomize >= 0.26)
             {
                 console.log("You are walking down the path...");
             }
-            else if (randomize >= 0.26)
+            else if (randomize <= 0.25)
             {
                 console.log(`Oh no! A ${enemy} just appeared!`);
                 while (userHealth > 0 && enemyHealth > 0)

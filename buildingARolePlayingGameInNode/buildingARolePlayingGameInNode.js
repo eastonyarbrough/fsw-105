@@ -15,9 +15,8 @@ if (start == 1)
 //Set variables.
 const enemies = ["bandit", "goblin", "kobold", "troll", "giant"];
 const treasure = ["Sword", "Magic Talisman", "Coin Purse", "Trinket"];
-let prize = [];
+let inventory = [];
 let userHealth = 100;
-const options = ["Walk", "Exit", "Print"];
 let pickUp = treasure[Math.floor(Math.random() * treasure.length)];
 
 function game()
@@ -29,63 +28,66 @@ function game()
     const enemyPower = Math.floor(Math.random() * (20 + 20 - 2) + 12);
 
     //Action Options.
-    const index = readline.keyInSelect(options, "What would you like to do?: ");
+    while (pressStart == true && userHealth > 0)
+    {
+        const perform = readline.keyIn("What would you like to do? \nPress 'W' to walk. \nPress 'P' to print stats. \nPress 'X' to exit the game.", {limit: '$<w, p, x>'});
 
-    //Game Mechanics.
-    if (options[index] == "Exit")
-    {
-        return(userHealth = 0);
-    }
-    else if (options[index] == "Print")
-    {
-        console.log(`Name: ${playerName} \nHealth: ${userHealth} \nItems: ${pickUp}`);
-    }
-    else if (options[index] == "Walk")
-    {
-        let randomize = Math.random();
-        if (randomize <= 0.25)
+        //Game Mechanics.
+        if (perform == 'x')
         {
-            console.log("You are walking down the path...");
+            return(userHealth = 0);
         }
-        else if (randomize >= 0.26)
+        else if (perform == 'p')
         {
-            console.log(`Oh no! A ${enemy} just appeared!`);
-            while (userHealth > 0 && enemyHealth > 0)
+            console.log(`Name: ${playerName} \nHealth: ${userHealth} \nItems: ${inventory}`);
+        }
+        else if (perform == 'w')
+        {
+            let randomize = Math.random();
+            if (randomize <= 0.25)
             {
-                const actions = readline.question("What would you like to do? Press 'R' to run away. Press 'A' to attack.");
-                if (actions == 'r')
+                console.log("You are walking down the path...");
+            }
+            else if (randomize >= 0.26)
+            {
+                console.log(`Oh no! A ${enemy} just appeared!`);
+                while (userHealth > 0 && enemyHealth > 0)
                 {
-                    const run = Math.random();
-                    if (run <= 0.5)
+                    const actions = readline.keyIn("What would you like to do? \nPress 'R' to run away. \nPress 'A' to attack.", {limit: '<r, a>'});
+                    if (actions == 'r')
                     {
-                        console.log(`You couldn't get away! ${enemy} attacks you for ${enemyPower} damage!`);
-                    }
-                    else if (run >= 0.51)
-                    {
-                        console.log("You got away safely!")
-                        break;
-                    }
-                }
-                else if (actions == 'a')
-                {
-                    enemyHealth -= attackPower;
-                    console.log(`You attacked the ${enemy} for ${attackPower} damage!`);
-                    userHealth -= enemyPower;
-                    console.log(`The ${enemy} attacked you for ${enemyPower} damage!`);
-                    if (enemyHealth <= 0)
-                    {
-                        console.log(`You successfully killed the ${enemy}!`);
-                        let dropLoot = Math.random();
-                        if (dropLoot <= 0.25)
+                        const run = Math.random();
+                        if (run <= 0.5)
                         {
-                            console.log(`You found a ${pickUp} on the dead ${enemy}!`);
-                            prize.push(pickUp);
+                            console.log(`You couldn't get away! ${enemy} attacks you for ${enemyPower} damage!`);
+                        }
+                        else if (run >= 0.51)
+                        {
+                            console.log("You got away safely!")
+                            break;
                         }
                     }
-                    if (userHealth <= 0)
+                    else if (actions == 'a')
                     {
-                        console.log(`The ${enemy} has slain you! ${playerName} is dead!`);
-                        break;
+                        enemyHealth -= attackPower;
+                        console.log(`You attacked the ${enemy} for ${attackPower} damage!`);
+                        userHealth -= enemyPower;
+                        console.log(`The ${enemy} attacked you for ${enemyPower} damage!`);
+                        if (enemyHealth <= 0)
+                        {
+                            console.log(`You successfully killed the ${enemy}!`);
+                            let dropLoot = Math.random();
+                            if (dropLoot <= 0.25)
+                            {
+                                console.log(`You found a ${pickUp} on the dead ${enemy}!`);
+                                inventory.push(pickUp);
+                            }
+                        }
+                        if (userHealth <= 0)
+                        {
+                            console.log(`The ${enemy} has slain you! ${playerName} is dead!`);
+                            break;
+                        }
                     }
                 }
             }

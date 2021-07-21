@@ -13,8 +13,8 @@ if (start == 1)
 }
 
 //Set variables.
-const enemies = ["bandit", "goblin", "kobold", "troll", "giant"];
-const treasure = ["Sword", "Magic Talisman", "Coin Purse", "Trinket"];
+const enemies = ["bandit", "goblin", "kobold", "troll", "giant", "beholder", "zombie", "ogre"];
+const treasure = ["Magic Talisman", "Coin Purse", "Trinket", "Lucky Charm", "Set of Dice"];
 let inventory = [];
 let userHealth = 100;
 let hasHealed = false;

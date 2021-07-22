@@ -38,7 +38,7 @@ function game()
         //Game Mechanics.
         if (perform == 'x')
         {
-            console.log(`------------------------------------ \n ~~ ${playerName}'s Final Stats ~~ \nName: ${playerName} \nHealth: ${userHealth} \nKills: ${killNum} \nItems:${inventory} \n------------------------------------`);
+            console.log(`------------------------------------ \n~~ ${playerName}'s Final Stats ~~ \nName: ${playerName} \nHealth: ${userHealth} \nKills: ${killNum} \nItems:${inventory} \n------------------------------------`);
             return(userHealth = 0);
         }
         else if (perform == 'p')
@@ -90,7 +90,7 @@ function game()
                             if (userHealth <= 0)
                             {
                                 console.log(`The ${enemy} has slain you! ${playerName} is dead!`);
-                                console.log(`------------------------------------ \n ~~ ${playerName}'s Final Stats ~~ \nName: ${playerName} \nHealth: ${userHealth} \nKills: ${killNum} \nItems:${inventory} \n------------------------------------`);
+                                console.log(`------------------------------------ \n~~ ${playerName}'s Final Stats ~~ \nName: ${playerName} \nHealth: ${userHealth} \nKills: ${killNum} \nItems:${inventory} \n------------------------------------`);
                                 break;
                             }
                         }
@@ -120,7 +120,7 @@ function game()
                         if (userHealth <= 0)
                         {
                             console.log(`The ${enemy} has slain you! ${playerName} is dead!`);
-                            console.log(`------------------------------------ \n ~~ ${playerName}'s Final Stats ~~ \nName: ${playerName} \nHealth: ${userHealth} \nKills: ${killNum} \nItems:${inventory} \n------------------------------------`);
+                            console.log(`------------------------------------ \n~~ ${playerName}'s Final Stats ~~ \nName: ${playerName} \nHealth: ${userHealth} \nKills: ${killNum} \nItems:${inventory} \n------------------------------------`);
                             break;
                         }
                     }

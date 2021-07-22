@@ -8,7 +8,7 @@ const start = readline.keyIn(`${playerName} please press 1 to start.`, {limit: '
 let pressStart = false;
 if (start == 1)
 {
-    console.log("You're standing on a road between two towns. Bandits and monsters plague this area! Be careful out here!");
+    console.log("------------------------------------ \nYou're standing on a road between two towns. Bandits and monsters plague this area! Be careful out here!");
     pressStart = true;
 }
 
@@ -38,18 +38,19 @@ function game()
         //Game Mechanics.
         if (perform == 'x')
         {
+            console.log(`------------------------------------ \n ~~ ${playerName}'s Final Stats ~~ \nName: ${playerName} \nHealth: ${userHealth} \nKills: ${killNum} \nItems:${inventory} \n------------------------------------`);
             return(userHealth = 0);
         }
         else if (perform == 'p')
         {
-            console.log(`Name: ${playerName} \nHealth: ${userHealth} \nKills: ${killNum} \nItems:${inventory}`);
+            console.log(`------------------------------------ \nName: ${playerName} \nHealth: ${userHealth} \nKills: ${killNum} \nItems:${inventory} \n------------------------------------`);
         }
         else if (perform == 'h')
         {
             if (userHealth < 100 && hasHealed == false)
             {
                 userHealth += heal;
-                console.log(`You healed for ${heal} hit points!`);
+                console.log(`------------------------------------ \nYou healed for ${heal} hit points!`);
                 hasHealed = true;
                 if (userHealth > 100)
                 {
@@ -58,11 +59,11 @@ function game()
             }
             else if (userHealth < 100 && hasHealed == true)
             {
-                console.log(`You have already healed! - Health: ${userHealth}`)
+                console.log(`------------------------------------ \nYou have already healed! - Health: ${userHealth}`)
             }
             else if (userHealth >= 100)
             {
-                console.log(`Your health is full! - Health: ${userHealth}`)
+                console.log(`------------------------------------ \nYour health is full! - Health: ${userHealth}`)
             }
         }
         else if (perform == 'w')
@@ -71,11 +72,11 @@ function game()
             let randomize = Math.random();
             if (randomize >= 0.26)
             {
-                console.log("You are walking down the path...");
+                console.log("------------------------------------ \nYou are walking down the path...");
             }
             else if (randomize <= 0.25)
             {
-                console.log(`Oh no! A ${enemy} just appeared!`);
+                console.log(`------------------------------------ \nOh no! A ${enemy} just appeared!`);
                 while (userHealth > 0 && enemyHealth > 0)
                 {
                     const actions = readline.keyIn("What would you like to do? \nPress 'R' to run away. \nPress 'A' to attack.", {limit: '<r, a>'});
@@ -84,24 +85,25 @@ function game()
                         const run = Math.random();
                         if (run <= 0.5)
                         {
-                            console.log(`You couldn't get away! The ${enemy} attacks you for ${enemyPower} damage!`);
+                            console.log(`------------------------------------ \nYou couldn't get away! The ${enemy} attacks you for ${enemyPower} damage!`);
                             userHealth -= enemyPower;
                             if (userHealth <= 0)
                             {
                                 console.log(`The ${enemy} has slain you! ${playerName} is dead!`);
+                                console.log(`------------------------------------ \n ~~ ${playerName}'s Final Stats ~~ \nName: ${playerName} \nHealth: ${userHealth} \nKills: ${killNum} \nItems:${inventory} \n------------------------------------`);
                                 break;
                             }
                         }
                         else if (run >= 0.51)
                         {
-                            console.log("You got away safely!")
+                            console.log("------------------------------------ \nYou got away safely!")
                             break;
                         }
                     }
                     else if (actions == 'a')
                     {
                         enemyHealth -= attackPower;
-                        console.log(`You attacked the ${enemy} for ${attackPower} damage!`);
+                        console.log(`------------------------------------ \nYou attacked the ${enemy} for ${attackPower} damage!`);
                         userHealth -= enemyPower;
                         console.log(`The ${enemy} attacked you for ${enemyPower} damage!`);
                         if (enemyHealth <= 0)
@@ -118,6 +120,7 @@ function game()
                         if (userHealth <= 0)
                         {
                             console.log(`The ${enemy} has slain you! ${playerName} is dead!`);
+                            console.log(`------------------------------------ \n ~~ ${playerName}'s Final Stats ~~ \nName: ${playerName} \nHealth: ${userHealth} \nKills: ${killNum} \nItems:${inventory} \n------------------------------------`);
                             break;
                         }
                     }

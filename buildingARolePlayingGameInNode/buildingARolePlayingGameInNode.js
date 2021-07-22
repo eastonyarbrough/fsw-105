@@ -29,7 +29,7 @@ function game()
         const attackPower = Math.floor(Math.random() * (30 + 15 - 3) + 15);
         const enemy = enemies[Math.floor(Math.random() * enemies.length)];
         const enemyPower = Math.floor(Math.random() * (20 + 20 - 2) + 12);
-        const heal = Math.floor(Math.random() * 70);
+        const heal = Math.floor(Math.random() * 70 + 1);
 
         //Action Options.
         const perform = readline.keyIn("What would you like to do? \nPress 'W' to walk. \nPress 'H' to heal. \nPress 'P' to print stats. \nPress 'X' to exit the game.", {limit: '$<w, h, p, x>'});

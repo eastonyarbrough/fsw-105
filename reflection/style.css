@@ -1,0 +1,23 @@
+html, body {
+    text-align: center;
+    background-color: black;
+}
+h1 {
+    color: white;
+    font-size: 3.0em;
+}
+h2 {
+    color: white;
+}
+p {
+    color: white;
+}
+img {
+    width: 600px;
+    height: auto;
+    padding-bottom: 50px;
+    align-content: center;
+}
+div {
+    text-align: center;
+}

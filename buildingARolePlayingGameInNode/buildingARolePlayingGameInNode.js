@@ -18,6 +18,7 @@ const treasure = ["Magic Talisman", "Coin Purse", "Trinket", "Lucky Charm", "Set
 let inventory = [];
 let userHealth = 100;
 let hasHealed = false;
+let killNum = 0;
 
 function game()
 {
@@ -41,7 +42,7 @@ function game()
         }
         else if (perform == 'p')
         {
-            console.log(`Name: ${playerName} \nHealth: ${userHealth} \nItems:${inventory}`);
+            console.log(`Name: ${playerName} \nHealth: ${userHealth} \nKills: ${killNum} \nItems:${inventory}`);
         }
         else if (perform == 'h')
         {
@@ -106,6 +107,7 @@ function game()
                         if (enemyHealth <= 0)
                         {
                             console.log(`You successfully killed the ${enemy}!`);
+                            killNum += 1;
                             let dropLoot = Math.random();
                             if (dropLoot <= 0.25)
                             {
